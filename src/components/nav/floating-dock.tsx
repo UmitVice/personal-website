@@ -75,12 +75,12 @@ export function FloatingDock() {
     <header
       role="banner"
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-transform duration-300",
+        "fixed top-0 left-0 right-0 z-50 flex justify-center transition-transform duration-300",
         isVisible ? "translate-y-0" : "-translate-y-full"
       )}
     >
       <nav
-        className="mx-auto mt-3 w-fit max-w-[calc(100%-32px)] rounded-full glass-strong px-1 py-1 shadow-sm md:mt-4"
+        className="mt-3 w-fit max-w-[calc(100%-32px)] rounded-full glass-strong px-1 py-1 shadow-sm md:mt-4"
         role="navigation"
         aria-label="Main navigation"
       >

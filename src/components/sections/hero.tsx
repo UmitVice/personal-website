@@ -51,8 +51,8 @@ export function HeroSection() {
                   <h2 className="sr-only">Quick stats</h2>
                   <div className="grid grid-cols-2 gap-6">
                     {profile.stats.map((stat) => (
-                      <div key={stat.label} className="text-center">
-                        <p className="text-3xl font-bold text-primary md:text-4xl">
+                      <div key={stat.label} className="min-w-0 text-center">
+                        <p className="text-3xl font-bold text-primary break-words md:text-4xl">
                           {stat.value}
                         </p>
                         <p className="mt-1 text-xs font-medium text-on-surface-variant">
