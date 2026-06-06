@@ -1,0 +1,148 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: #f7f9fb;
+  --color-foreground: #191c1e;
+
+  /* Surface scale */
+  --color-surface: #f7f9fb;
+  --color-surface-dim: #d8dadc;
+  --color-surface-bright: #f7f9fb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container: #eceef0;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #3e4850;
+  --color-inverse-surface: #2d3133;
+  --color-inverse-on-surface: #eff1f3;
+  --color-outline: #6e7881;
+  --color-outline-variant: #bec8d2;
+  --color-surface-tint: #006591;
+
+  /* Primary */
+  --color-primary: #0ea5e9;
+  --color-primary-foreground: #ffffff;
+  --color-primary-container: #0ea5e9;
+  --color-primary-container-foreground: #003751;
+  --color-inverse-primary: #89ceff;
+
+  /* Secondary */
+  --color-secondary: #006686;
+  --color-secondary-foreground: #ffffff;
+  --color-secondary-container: #7ed4fd;
+  --color-secondary-container-foreground: #005b78;
+
+  /* Tertiary (sandy beige) */
+  --color-tertiary: #665f3d;
+  --color-tertiary-foreground: #ffffff;
+  --color-tertiary-container: #b5ac84;
+  --color-tertiary-container-foreground: #464021;
+
+  /* Error */
+  --color-error: #ba1a1a;
+  --color-error-foreground: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-error-container-foreground: #93000a;
+
+  /* Tag chips */
+  --color-tag-bg: #fef3c7;
+  --color-tag-fg: #4d4727;
+
+  /* Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Fonts */
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  /* Animations */
+  --animate-aurora-drift: aurora-drift 20s ease-in-out infinite alternate;
+
+  @keyframes aurora-drift {
+    0% {
+      transform: translate(0%, 0%) scale(1);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translate(5%, -5%) scale(1.05);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translate(-3%, 3%) scale(0.95);
+      opacity: 0.3;
+    }
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-outline-variant);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism layers (DESIGN.md § Elevation & Depth) */
+  .glass {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  .glass-strong {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .glow-primary {
+    box-shadow: 0 20px 60px -15px rgba(14, 165, 233, 0.25);
+  }
+  .glow-primary-sm {
+    box-shadow: 0 8px 30px -10px rgba(14, 165, 233, 0.2);
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--color-tag-bg);
+    color: var(--color-tag-fg);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.025em;
+    white-space: nowrap;
+  }
+
+  .container-portfolio {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .container-portfolio {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+}
