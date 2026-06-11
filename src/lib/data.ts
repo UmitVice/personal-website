@@ -40,37 +40,37 @@ export interface Social {
 
 export const profile = {
   name: "Umit Vice",
-  title: "Senior Full Stack Engineer",
-  subtitle: "Frontend · React · Next.js · System Design",
+  title: "Senior Full Stack & AI Engineer",
+  subtitle: "Next.js · React · TypeScript · AI Engineering",
   location: "Istanbul, Turkey",
   email: "umitvice@gmail.com",
   phone: "+90 536 218 8238",
   summary:
-    "Senior Software Developer with 8+ years of experience building high-performance web and mobile applications using React, Next.js, Node.js, and React Native. Expert in system design, frontend architecture, perfect 100/100 Lighthouse optimization, and high-performance WebView solutions. Proven track record of taking 100% technical ownership of software ecosystems and mentoring teams. Skilled in integrating AI/LLM workflows into UIs and collaborating with global cross-functional teams across US Eastern, UK, and European timezones.",
+    "Product-driven Senior Full Stack / AI Engineer with 8+ years of experience specializing in zero-to-one product development, modern AI/LLM agent workflows, and high-performance architectures. Proven track record of taking 100% technical ownership of complex software ecosystems, designing goal-driven workflows with persistent context, and shipping production-ready platforms within weeks alongside founders. Thrives in high-autonomy, fast-paced environments with ambiguous constraints, balancing real-time streaming execution with an obsessive focus on application latency, failure recovery, and secure infrastructures.",
   /** Three pillars for the About section */
   pillars: [
     {
-      title: "System Design",
+      title: "Zero to One Product Development",
       description:
-        "Architecting scalable frontend and backend systems with clean separation of concerns, microservices, and data-driven decision-making.",
+        "Taking ideas from blank canvas to production-ready platforms within weeks, owning the full technical lifecycle alongside founders and shipping under tight, ambiguous constraints.",
     },
     {
-      title: "Frontend Architecture",
+      title: "AI LLM Agent Workflows",
       description:
-        "Building maintainable, high-performance UIs with React, Next.js, and TypeScript — achieving Lighthouse scores of 100/100 and Core Web Vitals excellence.",
+        "Designing multi-step reasoning agent workflows with OpenAI and Anthropic, persistent context management, RAG pipelines, and automated data pipelines that turn LLM calls into reliable product features.",
     },
     {
-      title: "AI / LLM Integration",
+      title: "High Performance Architecture",
       description:
-        "Integrating modern AI workflows into production UIs, from LLM-powered data processing to intelligent automation interfaces.",
+        "Building high-performance frontend and backend architectures with streaming under tight latency constraints, robust fallback and failure recovery patterns, and Core Web Vitals excellence.",
     },
   ],
   /** Quick stats for the hero quick-stats card */
   stats: [
     { label: "Years Experience", value: "8+" },
     { label: "Lighthouse Score", value: "100/100" },
-    { label: "Teams Mentored", value: "5+" },
-    { label: "Global Projects", value: "10+" },
+    { label: "Core Web Vitals", value: "+25%" },
+    { label: "AI / LLM Workflows", value: "Production" },
   ],
 } as const;
 
@@ -86,16 +86,16 @@ export const socials: Social[] = [
 
 export const experiences: Experience[] = [
   {
-    role: "Full Stack Developer",
+    role: "Full Stack Engineer",
     company: "Bolt Insight",
-    location: "London, UK",
+    location: "Remote | London, UK",
     period: "Jan 2026 – Present",
     highlights: [
-      "Lead end-to-end frontend development of high-performance web applications using React, Next.js, and Node.js deployed on AWS ecosystems.",
-      "Championed client-side performance initiatives, increasing Lighthouse and Core Web Vitals scores by 25% across core modules.",
-      "Architect and implement production-ready UI workflows and LLM integrations to automate complex data processes.",
+      "Architect and execute production-ready Next.js and Python workflows and state of the art OpenAI and Anthropic LLM agent integrations with persistent context and RAG pipelines for the boltinsight.com platform.",
+      "Design multi-step reasoning agent workflows and real time AI interactions with streaming under tight latency constraints using Node.js, Docker, and AWS.",
+      "Build robust fallback, failure recovery, and evaluation mechanisms in Agile sprints, increasing Core Web Vitals scores by 25%.",
     ],
-    tags: ["React", "Next.js", "Node.js", "AWS", "LLM"],
+    tags: ["Next.js", "Python", "Node.js", "OpenAI", "Anthropic", "RAG", "AWS", "Docker"],
   },
   {
     role: "Senior Software Developer (Contract)",
@@ -103,11 +103,10 @@ export const experiences: Experience[] = [
     location: "Istanbul, Turkey",
     period: "Jul 2025 – Dec 2025",
     highlights: [
-      "Spearheaded frontend architecture and feature development for Marti Tag admin panel and CRM systems, reducing page load times.",
-      "Assumed technical ownership of frontend deliverables, mentoring team members and establishing client-side best practices.",
-      "Contributed to backend and frontend enhancements leveraging PostgreSQL and Node.js to ensure system availability during peak traffic.",
+      "Assumed 100% technical ownership as Frontend Lead for high-traffic ecosystems, including the marti.tech corporate site, Marti Tag mobile applications (iOS App Store), WebViews, and real time WebSocket CRM maps.",
+      "Optimized Python and Node.js backend architectures via Kubernetes and AWS for complex features (courier tracking, super member packages, and admin panels), establishing engineering best practices and ensuring high availability during peak traffic windows.",
     ],
-    tags: ["React", "Node.js", "PostgreSQL", "CRM"],
+    tags: ["React", "Node.js", "Python", "Kubernetes", "AWS", "WebSockets"],
   },
   {
     role: "Senior Software Developer",
@@ -115,35 +114,32 @@ export const experiences: Experience[] = [
     location: "Istanbul, Turkey",
     period: "Apr 2024 – May 2025",
     highlights: [
-      "Engineered scalable frontend and mobile WebView solutions for Vodafone & Hepsiburada CRM Project, achieving 100/100 Lighthouse scores.",
-      "Executed UI refresh for Vodafone Business and delivered critical features for Her Sey Yanimda, enhancing mobile UX.",
-      "Built an internal campaign management platform (HB Campaign Panel) from scratch utilizing Next.js, React, and Styled Components.",
+      "Engineered scalable enterprise frontend architectures, the B2B Vodafone Red Console platform (vodafone.com.tr/vodafone-business/red-konsol), and Vodafone Yanımda e-commerce applications (iOS and Android), achieving perfect 100/100 Lighthouse scores.",
+      "Built an internal enterprise campaign management platform (HB Campaign Panel) from scratch utilizing Next.js, React, and SQL (Postgres), leveraging AI-assisted coding tools (Cursor and GPT) to accelerate Agile delivery cycles.",
     ],
-    tags: ["React", "Next.js", "WebView", "100/100 GWS"],
+    tags: ["Next.js", "React", "PostgreSQL", "WebView", "100/100 Lighthouse"],
   },
   {
     role: "Software Developer",
     company: "Talent500",
-    location: "USA & India",
+    location: "Remote | USA & India",
     period: "Apr 2022 – Apr 2024",
     highlights: [
-      "Architected and took 100% technical ownership of AI Planet platform frontend (6 months), building web/mobile UIs from scratch using Next.js and React Native.",
-      "Contributed to Canvas Project, driving a UI redesign and React to Next.js migration that reached up to 100/100 Lighthouse scores.",
-      "Served as a key frontend contributor across distributed global teams, managing deliverables and mentoring junior developers.",
+      "Took 100% solo frontend ownership of the talent500.com AI Planet platform, integrating AI-powered workflows, external tools, and memory states using Next.js, Redux Toolkit, and Zustand within an autonomous, distributed global Agile environment.",
+      "Commanded a full-scale UI redesign and React to Next.js migration for the Canvas Project (canvas.talent500.co), driving engineering execution to perfect 100/100 performance and responsiveness scores.",
     ],
-    tags: ["Next.js", "React Native", "100/100 GWS", "Migration"],
+    tags: ["Next.js", "React Native", "Redux Toolkit", "Zustand", "AI Workflows"],
   },
   {
     role: "Senior Software Developer",
-    company: "Optimus Yazilim",
+    company: "Optimus Software",
     location: "Istanbul, Turkey",
     period: "Nov 2021 – Mar 2022",
     highlights: [
-      "Drove frontend lifecycle for a high-traffic Investment/Fundraising Platform using React, React Native, and GraphQL.",
-      "Optimized API integrations and client-side data caching with MongoDB, reducing application latency and response times.",
-      "Provided technical guidance and mentorship to developers, shaping the project's frontend technical decisions.",
+      "Led full-stack lifecycle for high-traffic, custom B2B trading, e-commerce, and fundraising platforms (obt.com.tr) using React, Node.js, and noSQL (MongoDB), significantly reducing application latency and securing API integrations.",
+      "Used LLM tools to accelerate multi-step iterations, cutting through bottlenecks to optimize execution speed.",
     ],
-    tags: ["React", "React Native", "GraphQL", "MongoDB"],
+    tags: ["React", "Node.js", "MongoDB", "B2B"],
   },
   {
     role: "Full Stack Developer (Contract)",
@@ -151,10 +147,9 @@ export const experiences: Experience[] = [
     location: "Remote",
     period: "Jan 2021 – Dec 2021",
     highlights: [
-      "Developed and deployed production-ready web applications for e-commerce and finance sectors using React and Node.js.",
-      "Delivered clean, responsive frontend UIs and integrated secure RESTful APIs with MongoDB databases.",
+      "Shipped end-to-end, production-ready web applications using Next.js, Node.js, and Docker for competitive e-commerce and finance sectors.",
     ],
-    tags: ["React", "Node.js", "REST", "MongoDB"],
+    tags: ["Next.js", "Node.js", "Docker"],
   },
   {
     role: "Software Developer",
@@ -162,9 +157,19 @@ export const experiences: Experience[] = [
     location: "Istanbul, Turkey",
     period: "Jan 2020 – Jan 2021",
     highlights: [
-      "Developed comprehensive ERP and e-commerce applications using React and React Native deployed on Google Cloud Platform (GCP).",
+      "Developed ERP and e-commerce applications using React and React Native deployed on Google Cloud Platform (GCP).",
     ],
     tags: ["React", "React Native", "GCP", "ERP"],
+  },
+  {
+    role: "Front End Developer & Designer",
+    company: "Morplex Industry, Commerce Ltd.",
+    location: "Istanbul, Turkey",
+    period: "Feb 2017 – Aug 2017",
+    highlights: [
+      "Maintained corporate web applications and digital product catalogs while contributing to UI/UX design execution.",
+    ],
+    tags: ["Front End", "UI/UX", "Corporate Web"],
   },
 ];
 
@@ -172,48 +177,65 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
-    title: "AI Planet Platform",
-    role: "100% Frontend Ownership",
-    company: "Talent500",
-    impact: "Built web and mobile UIs from scratch in 6 months using Next.js and React Native.",
-    tags: ["Next.js", "React Native", "TypeScript"],
+    title: "Bolt Insight Platform",
+    role: "Full Stack & AI Engineer",
+    company: "Bolt Insight",
+    impact:
+      "Architect and execute production-ready Next.js and Python workflows and state of the art OpenAI and Anthropic LLM agent integrations with persistent context and RAG pipelines for boltinsight.com.",
+    tags: ["Next.js", "Python", "OpenAI", "Anthropic", "RAG", "AWS"],
+    highlight: "AI Agent Workflows",
+  },
+  {
+    title: "Marti Tech Ecosystem",
+    role: "Frontend Lead",
+    company: "Marti Technologies",
+    impact:
+      "Took 100% technical ownership as Frontend Lead for the marti.tech corporate site, Marti Tag iOS application, WebViews, and real time WebSocket CRM maps under high-traffic peak windows.",
+    tags: ["React", "Node.js", "Python", "Kubernetes", "AWS", "WebSockets"],
     highlight: "100% Ownership",
   },
   {
-    title: "Canvas Project",
-    role: "UI Redesign & Migration Lead",
-    company: "Talent500",
-    impact: "Drove React to Next.js migration, reaching 100/100 Lighthouse scores.",
-    tags: ["Next.js", "React", "Migration"],
+    title: "Vodafone Red Console & Yanımda",
+    role: "Senior Frontend Engineer",
+    company: "Vodafone",
+    impact:
+      "Engineered the B2B Vodafone Red Console platform and Vodafone Yanımda e-commerce applications (iOS and Android), achieving perfect 100/100 Lighthouse scores.",
+    tags: ["Next.js", "React", "WebView", "Mobile UX"],
     highlight: "100/100 Lighthouse",
   },
   {
     title: "HB Campaign Panel",
     role: "Built From Scratch",
     company: "Vodafone",
-    impact: "Internal campaign management platform built with Next.js, React, and Styled Components.",
-    tags: ["Next.js", "React", "Styled Components"],
+    impact:
+      "Internal enterprise campaign management platform built from scratch utilizing Next.js, React, and SQL (Postgres), accelerated by AI-assisted coding tools in Agile delivery cycles.",
+    tags: ["Next.js", "React", "PostgreSQL", "Agile"],
   },
   {
-    title: "Vodafone Business UI Refresh",
-    role: "UI Refresh Lead",
-    company: "Vodafone",
-    impact: "Executed UI refresh across Vodafone Business and Her Sey Yanimda mobile experiences.",
-    tags: ["React", "WebView", "Mobile UX"],
+    title: "AI Planet Platform",
+    role: "100% Solo Frontend Ownership",
+    company: "Talent500",
+    impact:
+      "Took 100% solo frontend ownership of talent500.com AI Planet platform, integrating AI-powered workflows, external tools, and memory states using Next.js, Redux Toolkit, and Zustand.",
+    tags: ["Next.js", "Redux Toolkit", "Zustand", "AI Workflows"],
+    highlight: "Solo Ownership",
   },
   {
-    title: "Marti Tag Admin Panel & CRM",
-    role: "Frontend Architect",
-    company: "Marti Technologies",
-    impact: "Reduced page load times through architecture overhaul and mentoring team best practices.",
-    tags: ["React", "Admin Panel", "CRM"],
+    title: "Canvas Project Migration",
+    role: "UI Redesign & Migration Lead",
+    company: "Talent500",
+    impact:
+      "Commanded a full-scale UI redesign and React to Next.js migration for canvas.talent500.co, driving engineering execution to perfect 100/100 performance and responsiveness scores.",
+    tags: ["Next.js", "React", "Migration", "100/100 Scores"],
+    highlight: "100/100 Performance",
   },
   {
-    title: "AI/LLM Workflow Integrations",
-    role: "Architect & Developer",
-    company: "Bolt Insight",
-    impact: "Production-ready LLM integrations automating complex data processes.",
-    tags: ["AI", "LLM", "Node.js"],
+    title: "OBT Trading & Fundraising Platform",
+    role: "Full Stack Lead",
+    company: "Optimus Software",
+    impact:
+      "Led full-stack lifecycle for high-traffic, custom B2B trading, e-commerce, and fundraising platforms (obt.com.tr), significantly reducing application latency and securing API integrations.",
+    tags: ["React", "Node.js", "MongoDB", "B2B"],
   },
 ];
 
@@ -221,40 +243,65 @@ export const projects: Project[] = [
 
 export const skillGroups: SkillGroup[] = [
   {
-    label: "Frontend",
+    label: "Languages & Frameworks",
     skills: [
-      "JavaScript (ES6+)",
-      "TypeScript",
-      "HTML5 / CSS3",
-      "React",
       "Next.js",
-      "Redux",
-      "Styled Components",
-      "Web Components",
-      "PWAs",
-      "Core Web Vitals",
+      "Python",
+      "Node.js",
+      "TypeScript",
+      "React",
+      "PyTorch",
+      "JavaScript (ES6+)",
+      "GraphQL",
+      "REST",
+      "TailwindCSS",
     ],
   },
   {
-    label: "Mobile",
-    skills: ["React Native", "Hybrid Apps", "Mobile WebView", "Cross-Platform UI", "Android Studio"],
+    label: "AI Engineering",
+    skills: [
+      "OpenAI",
+      "Anthropic",
+      "AI Agents",
+      "LLM Agent Workflows",
+      "RAG",
+      "Context Management",
+      "Automated Data Pipelines",
+    ],
   },
   {
-    label: "Backend & APIs",
-    skills: ["TypeScript", "Node.js", "Express", "Nest.js", "PostgreSQL", "REST", "GraphQL", "Microservices", "Go (Basic)", "MongoDB"],
+    label: "Databases & Infrastructure",
+    skills: [
+      "SQL (Postgres)",
+      "noSQL (MongoDB)",
+      "Kubernetes",
+      "Docker",
+      "AWS",
+      "GCP",
+      "Jenkins",
+      "Terraform",
+    ],
   },
   {
-    label: "AI & DevOps",
-    skills: ["AI Agents", "LLM Workflows", "RAG", "AWS", "GCP", "Azure", "CI/CD (GitHub Actions)", "Docker", "Jest"],
+    label: "Architecture & Tools",
+    skills: [
+      "WebSockets",
+      "Core Web Vitals",
+      "PWAs",
+      "Mobile WebView",
+      "Fallback & Recovery Patterns",
+      "Agile (Jira)",
+    ],
   },
 ];
 
 /* ── Certifications ─────────────────────────────────────────── */
 
 export const certifications: Certification[] = [
-  { title: "Node.js API Masterclass (Express & MongoDB)" },
+  { title: "Node.js API Masterclass (Express/MongoDB)" },
   { title: "MERN eCommerce From Scratch" },
-  { title: "Cloud Computing Fundamentals & Intro to AWS Architecture" },
+  { title: "AWS Cloud Architecture Fundamentals" },
+  { title: "PyTorch & Advanced AI Systems" },
 ];
 
 /* ── Education ──────────────────────────────────────────────── */
@@ -270,9 +317,9 @@ export const education = {
 /* ── Site info ──────────────────────────────────────────────── */
 
 export const siteInfo = {
-  title: "Umit Vice — Senior Full Stack Engineer",
+  title: "Umit Vice — Senior Full Stack & AI Engineer",
   description:
-    "Senior Full Stack Engineer specializing in React, Next.js, React Native, and AI/LLM integrations. 100/100 Lighthouse optimization expert.",
+    "Senior Full Stack & AI Engineer with 8+ years of experience. Specializing in zero to one product development, AI LLM agent workflows, and high performance architectures with Next.js, React, and TypeScript. 100/100 Lighthouse expert.",
   url: "https://umitvice.dev",
   creator: "Umit Vice",
 } as const;
@@ -310,12 +357,32 @@ export function buildMetadata(): Metadata {
     authors: [{ name: siteInfo.creator, url: siteInfo.url }],
     creator: siteInfo.creator,
     keywords: [
-      "Senior Full Stack Engineer",
-      "React",
+      "Senior Full Stack & AI Engineer",
+      "AI Engineer",
+      "LLM Agent Workflows",
+      "AI Agents",
+      "RAG",
+      "OpenAI",
+      "Anthropic",
       "Next.js",
-      "React Native",
+      "React",
       "TypeScript",
+      "Python",
+      "PyTorch",
       "Node.js",
+      "React Native",
+      "TailwindCSS",
+      "GraphQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Kubernetes",
+      "Docker",
+      "AWS",
+      "GCP",
+      "Terraform",
+      "Core Web Vitals",
+      "100/100 Lighthouse",
+      "Zero to One Product Development",
       "Istanbul",
       "Portfolio",
     ],
