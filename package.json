@@ -5,7 +5,9 @@
   "packageManager": "yarn@4.4.1",
   "type": "module",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "node scripts/dev.mjs",
+    "dev:raw": "next dev --turbopack",
+    "preview": "next build && next start",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
