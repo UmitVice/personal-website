@@ -39,7 +39,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="min-h-dvh bg-background font-sans antialiased">{children}</body>
+      <body
+        className="min-h-dvh bg-background font-sans antialiased"
+        suppressHydrationWarning
+      >
+        {children}
+      </body>
     </html>
   );
 }

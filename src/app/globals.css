@@ -321,10 +321,11 @@ section[id] {
 .portrait-stage {
   align-self: center;
   justify-self: end;
-  max-width: 520px;
+  max-width: 250px;
   perspective: 1300px;
   position: relative;
-  width: 100%;
+  transform: translateY(-140px);
+  width: 54%;
   z-index: 2;
 }
 
@@ -403,13 +404,13 @@ section[id] {
 }
 
 .note-top {
-  right: -28px;
-  top: 58px;
+  right: 0;
+  top: -76px;
 }
 
 .note-bottom {
-  bottom: 54px;
-  left: -50px;
+  bottom: -76px;
+  left: 0;
 }
 
 .proof-strip {
@@ -1307,8 +1308,9 @@ section[id] {
 
   .portrait-stage {
     justify-self: center;
-    max-width: 440px;
-    width: min(86vw, 440px);
+    max-width: 220px;
+    transform: translateY(-64px);
+    width: min(52vw, 220px);
   }
 
   .proof-strip {
