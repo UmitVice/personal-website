@@ -40,13 +40,13 @@ export interface Social {
 
 export const profile = {
   name: "Umit Vice",
-  title: "Senior Full Stack & AI Engineer",
-  subtitle: "Next.js · React · TypeScript · AI Engineering",
+  title: "Senior Software Engineer · AI & Engineering Leadership",
+  subtitle: "Product Architecture · Team Enablement · AI Engineering",
   location: "Istanbul, Turkey",
   email: "umitvice@gmail.com",
   phone: "+90 536 218 8238",
   summary:
-    "Product-driven Senior Full Stack / AI Engineer with 8+ years of experience specializing in zero-to-one product development, modern AI/LLM agent workflows, and high-performance architectures. Proven track record of taking 100% technical ownership of complex software ecosystems, designing goal-driven workflows with persistent context, and shipping production-ready platforms within weeks alongside founders. Thrives in high-autonomy, fast-paced environments with ambiguous constraints, balancing real-time streaming execution with an obsessive focus on application latency, failure recovery, and secure infrastructures.",
+    "Product-minded Senior Software Engineer with 8+ years of experience turning ambiguous ideas into resilient, high-performance products. Proven across zero-to-one delivery, AI/LLM workflows, technical ownership, architecture decisions, and cross-functional execution in global teams.",
   /** Three pillars for the About section */
   pillars: [
     {
@@ -317,9 +317,9 @@ export const education = {
 /* ── Site info ──────────────────────────────────────────────── */
 
 export const siteInfo = {
-  title: "Umit Vice — Senior Full Stack & AI Engineer",
+  title: "Umit Vice — Senior Software Engineer & Engineering Leadership",
   description:
-    "Senior Full Stack & AI Engineer with 8+ years of experience. Specializing in zero to one product development, AI LLM agent workflows, and high performance architectures with Next.js, React, and TypeScript. 100/100 Lighthouse expert.",
+    "Product-minded Senior Software Engineer with 8+ years of experience in zero-to-one products, AI systems, high-performance architecture, and engineering leadership.",
   url: "https://umitvice.dev",
   creator: "Umit Vice",
 } as const;
@@ -357,6 +357,10 @@ export function buildMetadata(): Metadata {
     authors: [{ name: siteInfo.creator, url: siteInfo.url }],
     creator: siteInfo.creator,
     keywords: [
+      "Senior Software Engineer",
+      "Engineering Manager",
+      "Engineering Leadership",
+      "Technical Lead",
       "Senior Full Stack & AI Engineer",
       "AI Engineer",
       "LLM Agent Workflows",

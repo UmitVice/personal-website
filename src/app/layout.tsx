@@ -23,7 +23,7 @@ export const metadata: Metadata = buildMetadata();
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f7f9fb",
+  themeColor: "#0a1118",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -32,9 +32,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={cn(geistSans.variable, geistMono.variable)} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="48x48" />
-        <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/favicon.ico" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
