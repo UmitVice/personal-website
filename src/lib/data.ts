@@ -344,7 +344,7 @@ export function buildMetadata(): Metadata {
       title: siteInfo.title,
       description: siteInfo.description,
       url: "/",
-      images: [{ url: "/og.png", width: 1200, height: 630, alt: siteInfo.title }],
+      images: [{ url: "/og.png", width: 1730, height: 909, alt: siteInfo.title }],
     },
     twitter: {
       card: "summary_large_image",

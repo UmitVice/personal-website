@@ -8,10 +8,8 @@ import {
   Code2,
   Download,
   Gauge,
-  Github,
   Globe2,
   Layers3,
-  Linkedin,
   Mail,
   MapPin,
   Sparkles,
@@ -354,8 +352,8 @@ export default function HomePage() {
             umitvice@gmail.com <ArrowUpRight aria-hidden="true" />
           </a>
           <div className="social-links">
-            <a href="https://linkedin.com/in/umitvice" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin /></a>
-            <a href="https://github.com/UmitVice" target="_blank" rel="noreferrer" aria-label="GitHub"><Github /></a>
+            <a href="https://linkedin.com/in/umitvice" target="_blank" rel="noreferrer" aria-label="LinkedIn"><span>in</span></a>
+            <a href="https://github.com/UmitVice" target="_blank" rel="noreferrer" aria-label="GitHub"><span>GH</span></a>
           </div>
         </div>
       </section>

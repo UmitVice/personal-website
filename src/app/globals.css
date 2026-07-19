@@ -1207,9 +1207,10 @@ section[id] {
   color: var(--white);
 }
 
-.social-links svg {
-  height: 18px;
-  width: 18px;
+.social-links span {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
 .footer {
