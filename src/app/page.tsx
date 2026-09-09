@@ -15,82 +15,54 @@ import {
   Sparkles,
   Users2,
 } from "lucide-react";
-import { experiences, projects, skillGroups } from "@/lib/data";
-
-const personalProducts = [
-  {
-    name: "Vaniras",
-    eyebrow: "Founder-built · AI / Fintech",
-    description:
-      "An AI-powered market intelligence platform that turns probabilistic forecasts into clear, decision-ready signals.",
-    outcome:
-      "Machine-learning forecasts, market heatmaps, watchlists and stock intelligence designed as one focused product system.",
-    stack: ["Machine Learning", "Next.js", "Product Architecture", "Data UX"],
-    href: "https://vaniras.com/",
-    image: "/projects/vaniras-preview.png",
-    imageAlt: "Vaniras market intelligence product preview",
-    tone: "blue",
-    number: "01",
-  },
-  {
-    name: "Life World",
-    eyebrow: "Founder-built · Marketplace",
-    description:
-      "A thoughtfully engineered real-estate marketplace for discovering and comparing exceptional homes.",
-    outcome:
-      "A premium discovery experience with structured property data, considered search flows and an editorial visual system.",
-    stack: ["Next.js", "TypeScript", "MongoDB", "Marketplace UX"],
-    href: "https://life-world.vercel.app/",
-    image: "/projects/life-world-preview.png",
-    imageAlt: "Life World real estate marketplace product preview",
-    tone: "green",
-    number: "02",
-  },
-] as const;
+import { experiences, profile, skillGroups } from "@/lib/data";
+import { individualProjects, projects } from "@/lib/projects";
+import { ProjectCategory, ProjectContent } from "@/components/sections/project-content";
 
 const leadershipPrinciples = [
   {
     icon: Layers3,
     index: "01",
-    title: "Turn ambiguity into a system",
-    body: "I translate broad product goals into clear architecture, milestones, ownership and measurable release criteria.",
+    title: "Build across the product",
+    body: "At Marti Technologies, I combined team leadership with development across mobility products, web applications, mobile experiences and operational software.",
   },
   {
     icon: Users2,
     index: "02",
-    title: "Raise the team’s execution ceiling",
-    body: "I make the path easier to follow through focused technical direction, pragmatic standards and high-signal communication.",
+    title: "Lead while implementing",
+    body: "At Optimus Software, I remained directly involved in web and mobile implementation while carrying team leadership responsibilities across the client portfolio.",
   },
   {
     icon: Gauge,
     index: "03",
-    title: "Ship quality that compounds",
-    body: "Performance, resilience and developer experience are designed into delivery—not scheduled as a cleanup phase.",
+    title: "Own the delivery lifecycle",
+    body: "My end-to-end project work connects requirements and architecture with implementation, integrations, testing, deployment, iteration and production support.",
   },
 ] as const;
 
 const proofPoints = [
   { value: "8+", label: "years building products" },
-  { value: "100/100", label: "Lighthouse performance" },
-  { value: "+25%", label: "Core Web Vitals uplift" },
+  { value: "AI + ML", label: "applied product development" },
+  { value: "Web + Mobile", label: "full stack delivery" },
   { value: "0→1", label: "products shipped end-to-end" },
 ] as const;
 
 export default function HomePage() {
   return (
-    <main>
+    <main id="main-content">
+      <a className="skip-link" href="#top">Skip to content</a>
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Umit Vice, back to top">
           <span>UV</span>
           <span className="wordmark-copy">
             <strong>Umit Vice</strong>
-            <small>Product engineering leader</small>
+            <small>AI & full stack engineering</small>
           </span>
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <a href="#products">Products</a>
+          <a href="#products">Individual Projects</a>
           <a href="#leadership">Leadership</a>
-          <a href="#work">Work</a>
+          <a href="#work">Company Projects</a>
           <a href="#experience">Experience</a>
         </nav>
         <a className="header-cta" href="mailto:umitvice@gmail.com">
@@ -98,18 +70,18 @@ export default function HomePage() {
         </a>
       </header>
 
-      <section className="hero" id="top">
+      <section className="hero" id="top" tabIndex={-1}>
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-copy">
-          <div className="availability"><span /> Open to senior engineering &amp; leadership roles</div>
-          <p className="hero-kicker">Senior Software Engineer · AI &amp; Engineering Leadership</p>
+          <div className="availability"><span /> Open to AI &amp; senior full stack engineering roles</div>
+          <p className="hero-kicker">{profile.title}</p>
+          <p className="hero-leadership">{profile.subtitle}</p>
           <h1>
-            I build the systems behind
-            <span> ambitious products.</span>
+            I build AI products
+            <span>and complete web applications.</span>
           </h1>
           <p className="hero-intro">
-            Product-minded engineer with 8+ years turning uncertain ideas into fast,
-            resilient software—and helping teams make better technical decisions while doing it.
+            {profile.summary}
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#products">
@@ -137,7 +109,7 @@ export default function HomePage() {
           <div className="portrait-frame">
             <Image
               src="/Umit_Vice_Profile_Photo.jpg"
-              alt="Umit Vice, Senior Software Engineer"
+              alt="Umit Vice, AI Engineer and Senior Full Stack Engineer"
               fill
               priority
               sizes="(max-width: 900px) 82vw, 38vw"
@@ -167,35 +139,27 @@ export default function HomePage() {
       <section className="section products-section" id="products">
         <div className="section-heading products-heading">
           <div>
-            <p className="section-label"><Sparkles aria-hidden="true" /> Founder-built products</p>
-            <h2>Ideas I took from zero to live.</h2>
+            <p className="section-label"><Sparkles aria-hidden="true" /> Independent product development</p>
+            <h2>Individual Projects</h2>
           </div>
           <p>
-            Two products where I owned the problem framing, architecture, interface and production delivery.
-            Hover to explore the build in three dimensions.
+            Two independently developed products connecting application architecture, data and user experience. Explore the engineering work and the applications below.
           </p>
         </div>
 
         <div className="product-stack">
-          {personalProducts.map((product, index) => (
-            <article className={`product-feature product-${product.tone}`} key={product.name}>
+          {individualProjects.map((product, index) => (
+            <article className={`product-feature product-${product.tone}`} key={product.id} id={product.id}>
               <div className="product-copy">
-                <div className="product-number">{product.number} / Personal product</div>
-                <p className="product-eyebrow">{product.eyebrow}</p>
-                <h3>{product.name}</h3>
-                <p className="product-lead">{product.description}</p>
-                <p className="product-outcome">{product.outcome}</p>
-                <ul className="product-tags" aria-label={`${product.name} technologies`}>
-                  {product.stack.map((item) => <li key={item}>{item}</li>)}
-                </ul>
-                <a className="product-link" href={product.href} target="_blank" rel="noreferrer">
-                  Visit live product <ArrowUpRight aria-hidden="true" />
-                </a>
+                <div className="product-number">{String(index + 1).padStart(2, "0")} / <ProjectCategory project={product} /></div>
+                <h3>{product.name}<span className="product-subtitle">{product.title.split(" | ")[1]}</span></h3>
+                <p className="project-role">{product.role}</p>
+                <ProjectContent project={product} />
               </div>
 
               <a
                 className="device-scene"
-                href={product.href}
+                href={product.links[0]!.href}
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`Open ${product.name}`}
@@ -204,13 +168,13 @@ export default function HomePage() {
                 <span className="browser-device">
                   <span className="browser-bar">
                     <span className="browser-dots"><i /><i /><i /></span>
-                    <span className="browser-address">{new URL(product.href).host}</span>
+                    <span className="browser-address">{new URL(product.links[0]!.href).host}</span>
                     <ArrowUpRight aria-hidden="true" />
                   </span>
                   <span className="browser-screen">
                     <Image
-                      src={product.image}
-                      alt={product.imageAlt}
+                      src={product.image!}
+                      alt={product.imageAlt!}
                       fill
                       sizes="(max-width: 900px) 94vw, 56vw"
                     />
@@ -228,12 +192,10 @@ export default function HomePage() {
       <section className="section leadership-section" id="leadership">
         <div className="section-heading leadership-heading">
           <div>
-            <p className="section-label"><Users2 aria-hidden="true" /> Engineering leadership</p>
-            <h2>Leadership is a force multiplier.</h2>
+            <p className="section-label"><Users2 aria-hidden="true" /> Hands-on team leadership</p>
+            <h2>Leadership grounded in development.</h2>
           </div>
-          <blockquote>
-            “The best architecture is the one a team can understand, operate and evolve with confidence.”
-          </blockquote>
+          <p>Team leadership at Marti Technologies and Optimus Software adds to my work as an engineer. I stay involved in the software, from implementation and integration to delivery.</p>
         </div>
         <div className="principles-grid">
           {leadershipPrinciples.map(({ icon: Icon, index, title, body }) => (
@@ -246,14 +208,14 @@ export default function HomePage() {
         </div>
         <div className="leadership-band">
           <div>
-            <span className="band-label">My operating range</span>
-            <h3>Architecture depth. Product judgment. Calm execution.</h3>
+            <span className="band-label">From requirements to production</span>
+            <h3>End-to-end ownership within company work.</h3>
           </div>
           <ul>
-            <li><CheckCircle2 /> Technical strategy &amp; roadmaps</li>
-            <li><CheckCircle2 /> Cross-functional delivery</li>
-            <li><CheckCircle2 /> Mentoring &amp; engineering standards</li>
-            <li><CheckCircle2 /> Reliability &amp; performance culture</li>
+            <li><CheckCircle2 /> Requirements &amp; software architecture</li>
+            <li><CheckCircle2 /> Frontend, backend &amp; React Native development</li>
+            <li><CheckCircle2 /> Integrations, application data &amp; testing</li>
+            <li><CheckCircle2 /> Deployment, iteration &amp; production support</li>
           </ul>
         </div>
       </section>
@@ -261,28 +223,26 @@ export default function HomePage() {
       <section className="section company-work" id="work">
         <div className="section-heading">
           <div>
-            <p className="section-label"><BriefcaseBusiness aria-hidden="true" /> Selected company work</p>
-            <h2>High-stakes products, shipped with ownership.</h2>
+            <p className="section-label"><BriefcaseBusiness aria-hidden="true" /> Engineering contributions</p>
+            <h2>Company Projects</h2>
           </div>
           <p>
-            A track record spanning AI platforms, mobility, telecom, marketplaces and enterprise systems.
+            Products delivered while working for companies, spanning AI, mobility, telecom, HR technology and trading. My contributions connect hands-on software development with integration, product ownership and production delivery.
           </p>
         </div>
         <div className="work-list">
           {projects.map((project, index) => (
-            <article className="work-row" key={project.title}>
+            <article className="work-row" key={project.id} id={project.id}>
               <span className="work-index">{String(index + 1).padStart(2, "0")}</span>
               <div className="work-title">
                 <p>{project.company}</p>
+                <ProjectCategory project={project} />
                 <h3>{project.title}</h3>
+                <p className="project-role">{project.role}</p>
               </div>
               <div className="work-detail">
-                <p>{project.impact}</p>
-                <ul>
-                  {project.tags.slice(0, 4).map((tag) => <li key={tag}>{tag}</li>)}
-                </ul>
+                <ProjectContent project={project} />
               </div>
-              <span className="work-role">{project.role}</span>
             </article>
           ))}
         </div>
@@ -324,8 +284,7 @@ export default function HomePage() {
           <p className="section-label"><Code2 aria-hidden="true" /> Technical range</p>
           <h2>Hands-on enough to go deep. Experienced enough to see the whole system.</h2>
           <p>
-            I work across the product surface—from interface architecture and AI workflows to APIs,
-            data, cloud infrastructure and delivery quality.
+            I connect Python and machine learning with full stack web development and React Native mobile delivery, taking AI-enabled products from application data to the user experience.
           </p>
         </div>
         <div className="capability-list">
@@ -344,8 +303,7 @@ export default function HomePage() {
         <p className="section-label"><Mail aria-hidden="true" /> Start a conversation</p>
         <h2>Looking for someone who can own the hard parts?</h2>
         <p>
-          I&apos;m open to Senior Software Engineer and Engineering Manager opportunities where
-          product ambition, technical quality and team impact all matter.
+          I am interested in AI Engineer, Senior AI Engineer and Senior Full Stack Engineer opportunities where I can combine applied AI work with end-to-end software delivery.
         </p>
         <div className="contact-actions">
           <a className="button button-light" href="mailto:umitvice@gmail.com">
@@ -360,7 +318,7 @@ export default function HomePage() {
 
       <footer className="footer">
         <div className="wordmark footer-wordmark"><span>UV</span><strong>Umit Vice</strong></div>
-        <p>Senior Software Engineer · Engineering Leadership · Istanbul, Türkiye</p>
+        <p>{profile.title} · Istanbul, Türkiye</p>
         <p>© {new Date().getFullYear()} Designed &amp; engineered with intent.</p>
       </footer>
     </main>

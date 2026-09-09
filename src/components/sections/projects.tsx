@@ -1,5 +1,5 @@
 import { projects } from "@/lib/data";
-import { Badge } from "@/components/ui/badge";
+import { ProjectCategory, ProjectContent } from "./project-content";
 import { Reveal } from "@/components/effects/reveal";
 
 export function ProjectsSection() {
@@ -9,7 +9,7 @@ export function ProjectsSection() {
         <Reveal>
           <div className="mx-auto max-w-4xl">
             <h2 className="font-sans text-2xl font-semibold tracking-tight text-on-surface md:text-3xl">
-              Featured Projects
+              Company Projects
             </h2>
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               {projects.map((project, index) => (
@@ -19,23 +19,11 @@ export function ProjectsSection() {
                       <h3 className="text-base font-semibold text-on-surface">
                         {project.title}
                       </h3>
-                      {project.highlight && (
-                        <Badge variant="default" className="shrink-0 text-[10px]">
-                          {project.highlight}
-                        </Badge>
-                      )}
+                      <ProjectCategory project={project} />
                     </div>
                     <p className="mt-1 text-xs font-medium text-primary">{project.role}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-on-surface-variant">
-                      {project.impact}
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="tag text-[10px]">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                    <p>{project.company}</p>
+                    <ProjectContent project={project} />
                   </article>
                 </Reveal>
               ))}

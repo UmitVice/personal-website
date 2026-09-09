@@ -11,14 +11,8 @@ export interface Experience {
   tags: readonly string[];
 }
 
-export interface Project {
-  title: string;
-  role: string;
-  company: string;
-  impact: string;
-  tags: readonly string[];
-  highlight?: string;
-}
+export type { Project } from "./projects";
+export { projects } from "./projects";
 
 export interface SkillGroup {
   label: string;
@@ -40,13 +34,13 @@ export interface Social {
 
 export const profile = {
   name: "Umit Vice",
-  title: "Senior Software Engineer · AI & Engineering Leadership",
-  subtitle: "Product Architecture · Team Enablement · AI Engineering",
+  title: "AI Engineer & Senior Full Stack Engineer",
+  subtitle: "Hands-on team leadership at Marti Technologies and Optimus Software, grounded in direct software development.",
   location: "Istanbul, Turkey",
   email: "umitvice@gmail.com",
   phone: "+90 536 218 8238",
   summary:
-    "Product-minded Senior Software Engineer with 8+ years of experience turning ambiguous ideas into resilient, high-performance products. Proven across zero-to-one delivery, AI/LLM workflows, technical ownership, architecture decisions, and cross-functional execution in global teams.",
+    "I am a software engineer with 8+ years of experience across AI-enabled products, web applications and mobile development. I connect Python, machine learning, Node.js, React, Next.js and TypeScript with end-to-end product delivery.",
   /** Three pillars for the About section */
   pillars: [
     {
@@ -68,9 +62,9 @@ export const profile = {
   /** Quick stats for the hero quick-stats card */
   stats: [
     { label: "Years Experience", value: "8+" },
-    { label: "Lighthouse Score", value: "100/100" },
-    { label: "Core Web Vitals", value: "+25%" },
-    { label: "AI / LLM Workflows", value: "Production" },
+    { label: "Individual Projects", value: "2" },
+    { label: "Platforms", value: "Web + Mobile" },
+    { label: "Product Delivery", value: "End to End" },
   ],
 } as const;
 
@@ -125,7 +119,7 @@ export const experiences: Experience[] = [
     location: "Remote | USA & India",
     period: "Apr 2022 – Apr 2024",
     highlights: [
-      "Took 100% solo frontend ownership of the talent500.com AI Planet platform, integrating AI-powered workflows, external tools, and memory states using Next.js, Redux Toolkit, and Zustand within an autonomous, distributed global Agile environment.",
+      "Took 100% solo frontend ownership of the talent500.com AI Planety platform, integrating AI-powered workflows, external tools, and memory states using Next.js, Redux Toolkit, and Zustand within an autonomous, distributed global Agile environment.",
       "Commanded a full-scale UI redesign and React to Next.js migration for the Canvas Project (canvas.talent500.co), driving engineering execution to perfect 100/100 performance and responsiveness scores.",
     ],
     tags: ["Next.js", "React Native", "Redux Toolkit", "Zustand", "AI Workflows"],
@@ -175,69 +169,6 @@ export const experiences: Experience[] = [
 
 /* ── Projects ───────────────────────────────────────────────── */
 
-export const projects: Project[] = [
-  {
-    title: "Bolt Insight Platform",
-    role: "Full Stack & AI Engineer",
-    company: "Bolt Insight",
-    impact:
-      "Architect and execute production-ready Next.js and Python workflows and state of the art OpenAI and Anthropic LLM agent integrations with persistent context and RAG pipelines for boltinsight.com.",
-    tags: ["Next.js", "Python", "OpenAI", "Anthropic", "RAG", "AWS"],
-    highlight: "AI Agent Workflows",
-  },
-  {
-    title: "Marti Tech Ecosystem",
-    role: "Frontend Lead",
-    company: "Marti Technologies",
-    impact:
-      "Took 100% technical ownership as Frontend Lead for the marti.tech corporate site, Marti Tag iOS application, WebViews, and real time WebSocket CRM maps under high-traffic peak windows.",
-    tags: ["React", "Node.js", "Python", "Kubernetes", "AWS", "WebSockets"],
-    highlight: "100% Ownership",
-  },
-  {
-    title: "Vodafone Red Console & Yanımda",
-    role: "Senior Frontend Engineer",
-    company: "Vodafone",
-    impact:
-      "Engineered the B2B Vodafone Red Console platform and Vodafone Yanımda e-commerce applications (iOS and Android), achieving perfect 100/100 Lighthouse scores.",
-    tags: ["Next.js", "React", "WebView", "Mobile UX"],
-    highlight: "100/100 Lighthouse",
-  },
-  {
-    title: "HB Campaign Panel",
-    role: "Built From Scratch",
-    company: "Vodafone",
-    impact:
-      "Internal enterprise campaign management platform built from scratch utilizing Next.js, React, and SQL (Postgres), accelerated by AI-assisted coding tools in Agile delivery cycles.",
-    tags: ["Next.js", "React", "PostgreSQL", "Agile"],
-  },
-  {
-    title: "AI Planet Platform",
-    role: "100% Solo Frontend Ownership",
-    company: "Talent500",
-    impact:
-      "Took 100% solo frontend ownership of talent500.com AI Planet platform, integrating AI-powered workflows, external tools, and memory states using Next.js, Redux Toolkit, and Zustand.",
-    tags: ["Next.js", "Redux Toolkit", "Zustand", "AI Workflows"],
-    highlight: "Solo Ownership",
-  },
-  {
-    title: "Canvas Project Migration",
-    role: "UI Redesign & Migration Lead",
-    company: "Talent500",
-    impact:
-      "Commanded a full-scale UI redesign and React to Next.js migration for canvas.talent500.co, driving engineering execution to perfect 100/100 performance and responsiveness scores.",
-    tags: ["Next.js", "React", "Migration", "100/100 Scores"],
-    highlight: "100/100 Performance",
-  },
-  {
-    title: "OBT Trading & Fundraising Platform",
-    role: "Full Stack Lead",
-    company: "Optimus Software",
-    impact:
-      "Led full-stack lifecycle for high-traffic, custom B2B trading, e-commerce, and fundraising platforms (obt.com.tr), significantly reducing application latency and securing API integrations.",
-    tags: ["React", "Node.js", "MongoDB", "B2B"],
-  },
-];
 
 /* ── Skills ─────────────────────────────────────────────────── */
 
@@ -250,7 +181,7 @@ export const skillGroups: SkillGroup[] = [
       "Node.js",
       "TypeScript",
       "React",
-      "PyTorch",
+      "React Native",
       "JavaScript (ES6+)",
       "GraphQL",
       "REST",
@@ -260,13 +191,12 @@ export const skillGroups: SkillGroup[] = [
   {
     label: "AI Engineering",
     skills: [
-      "OpenAI",
-      "Anthropic",
-      "AI Agents",
-      "LLM Agent Workflows",
-      "RAG",
-      "Context Management",
-      "Automated Data Pipelines",
+      "Python",
+      "XGBoost",
+      "Machine Learning Pipelines",
+      "Model Evaluation",
+      "Forecast APIs",
+      "AI Integration",
     ],
   },
   {
@@ -317,10 +247,10 @@ export const education = {
 /* ── Site info ──────────────────────────────────────────────── */
 
 export const siteInfo = {
-  title: "Umit Vice — Senior Software Engineer & Engineering Leadership",
+  title: "Umit Vice — AI Engineer & Senior Full Stack Engineer",
   description:
-    "Product-minded Senior Software Engineer with 8+ years of experience in zero-to-one products, AI systems, high-performance architecture, and engineering leadership.",
-  url: "https://umitvice.dev",
+    "AI Engineer & Senior Full Stack Engineer with 8+ years in software engineering, building AI-enabled web and mobile products with hands-on team leadership experience.",
+  url: "https://www.umitvice.com",
   creator: "Umit Vice",
 } as const;
 
@@ -336,6 +266,7 @@ export function buildMetadata(): Metadata {
     },
     description: siteInfo.description,
     metadataBase: new URL(siteInfo.url),
+    icons: { icon: { url: "/favicon.svg", type: "image/svg+xml" } },
     alternates: { canonical: "/" },
     openGraph: {
       type: "website",
@@ -344,52 +275,19 @@ export function buildMetadata(): Metadata {
       title: siteInfo.title,
       description: siteInfo.description,
       url: "/",
-      images: [{ url: "/og.png", width: 1730, height: 909, alt: siteInfo.title }],
+      images: [{ url: "/social-image", width: 1200, height: 630, alt: siteInfo.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: siteInfo.title,
       description: siteInfo.description,
-      images: ["/og.png"],
+      images: ["/social-image"],
       creator: "@umitvice",
     },
     robots: { index: true, follow: true },
     authors: [{ name: siteInfo.creator, url: siteInfo.url }],
     creator: siteInfo.creator,
-    keywords: [
-      "Senior Software Engineer",
-      "Engineering Manager",
-      "Engineering Leadership",
-      "Technical Lead",
-      "Senior Full Stack & AI Engineer",
-      "AI Engineer",
-      "LLM Agent Workflows",
-      "AI Agents",
-      "RAG",
-      "OpenAI",
-      "Anthropic",
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Python",
-      "PyTorch",
-      "Node.js",
-      "React Native",
-      "TailwindCSS",
-      "GraphQL",
-      "PostgreSQL",
-      "MongoDB",
-      "Kubernetes",
-      "Docker",
-      "AWS",
-      "GCP",
-      "Terraform",
-      "Core Web Vitals",
-      "100/100 Lighthouse",
-      "Zero to One Product Development",
-      "Istanbul",
-      "Portfolio",
-    ],
+    keywords: ["AI Engineer", "Senior Full Stack Engineer", "Python", "Machine Learning", "React Native", "Next.js", "TypeScript"],
     other: {
       "google-site-verification": "",
     },
