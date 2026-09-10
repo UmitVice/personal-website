@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/effects/reveal";
-import { Download } from "lucide-react";
 
 function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -37,15 +36,6 @@ export function HeroSection() {
                 performance architectures with 8+ years of global startup experience.
               </p>
               <div className="mt-10 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:justify-center">
-                <Button size="lg" asChild>
-                  <a
-                    href="/Umit_Vice_Senior_FullStack_AI_Engineer_Resume.pdf"
-                    download
-                  >
-                    <Download className="h-4 w-4" />
-                    Download Resume
-                  </a>
-                </Button>
                 <Button size="lg" variant="secondary" asChild>
                   <a
                     href="https://linkedin.com/in/umitvice"

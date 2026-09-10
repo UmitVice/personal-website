@@ -58,15 +58,6 @@ export function ContactSection() {
                     "Copy Email"
                   )}
                 </Button>
-                {/* Download resume */}
-                <Button variant="secondary" size="lg" asChild>
-                  <a
-                    href="/Umit_Vice_Senior_FullStack_AI_Engineer_Resume.pdf"
-                    download
-                  >
-                    Download Resume
-                  </a>
-                </Button>
               </div>
 
               {/* Social tiles */}

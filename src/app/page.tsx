@@ -6,7 +6,6 @@ import {
   BriefcaseBusiness,
   CheckCircle2,
   Code2,
-  Download,
   Gauge,
   Globe2,
   Layers3,
@@ -87,13 +86,6 @@ export default function HomePage() {
             <a className="button button-primary" href="#products">
               Explore my work <ArrowDownRight aria-hidden="true" />
             </a>
-            <a
-              className="button button-ghost"
-              href="/Umit_Vice_Senior_FullStack_AI_Engineer_Resume.pdf"
-              download
-            >
-              <Download aria-hidden="true" /> Download résumé
-            </a>
           </div>
           <div className="hero-trust">
             <span>Based in Istanbul · Working globally</span>
@@ -143,7 +135,7 @@ export default function HomePage() {
             <h2>Individual Projects</h2>
           </div>
           <p>
-            Two independently developed products connecting application architecture, data and user experience. Explore the engineering work and the applications below.
+            Three independently developed products connecting application architecture, data and user experience. Explore the engineering work and the applications below.
           </p>
         </div>
 
@@ -254,9 +246,6 @@ export default function HomePage() {
             <p className="section-label"><Globe2 aria-hidden="true" /> Career journey</p>
             <h2>Built across teams, sectors and borders.</h2>
           </div>
-          <a className="text-link" href="/Umit_Vice_Senior_FullStack_AI_Engineer_Resume.pdf" download>
-            Full résumé <Download aria-hidden="true" />
-          </a>
         </div>
         <div className="timeline">
           {experiences.map((experience, index) => (

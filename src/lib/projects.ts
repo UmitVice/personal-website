@@ -22,6 +22,51 @@ export interface Project {
 
 export const portfolioProjects: Project[] = [
   {
+    "id": "evidencedesk",
+    "name": "EvidenceDesk",
+    "title": "EvidenceDesk | AI Support Copilot with Human Review",
+    "category": "individual",
+    "company": null,
+    "role": "Independent Developer",
+    "technologies": [
+      "Python",
+      "FastAPI",
+      "LangGraph",
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "pgvector",
+      "Cloudflare Workers AI"
+    ],
+    "domains": [
+      "Retrieval-Augmented Generation",
+      "Human-in-the-Loop AI"
+    ],
+    "description": [
+      "I independently designed and built EvidenceDesk, an AI support copilot that turns a support ticket into a source-backed draft note for human review. The application connects document retrieval, structured AI responses and an explicit approval workflow in a complete web product.",
+      "I developed the Python backend with FastAPI and a bounded LangGraph workflow, combining PostgreSQL full-text search with pgvector similarity search and reciprocal rank fusion. Cloudflare Workers AI provides embeddings and generation, while citation and quotation checks connect generated claims to the retrieved documentation.",
+      "I built the Next.js and TypeScript interface for ticket analysis, source inspection, approval or rejection, and saved-note history. Session and tenant authorization restrict access to records. Approval saves the exact reviewed proposal in a database transaction, with retry handling designed to prevent duplicate notes; model output cannot directly execute a write.",
+      "The project includes automated API, database and browser tests, CI/CD, and a published evaluation record that separates retrieval results from answer-quality assessment. EvidenceDesk is an independent portfolio demonstration using fictional support cases. Its evaluation documents limitations, and human review of semantic answer quality remains pending."
+    ],
+    "links": [
+      {
+        "label": "View Application",
+        "href": "https://evidencedesk-web.vercel.app/"
+      },
+      {
+        "label": "View Source Code",
+        "href": "https://github.com/UmitVice/evidencedesk"
+      },
+      {
+        "label": "Evaluation Record",
+        "href": "https://evidencedesk-web.vercel.app/evaluations"
+      }
+    ],
+    "image": "/projects/evidencedesk-preview.png",
+    "imageAlt": "EvidenceDesk support copilot with sample tickets and a human review workflow",
+    "tone": "green"
+  },
+  {
     "id": "vaniras",
     "name": "Vaniras",
     "title": "Vaniras | AI and Machine Learning Stock Forecasting",
