@@ -93,7 +93,7 @@ export const portfolioProjects: Project[] = [
     "links": [
       {
         "label": "View Application",
-        "href": "https://app.vaniras.com/"
+        "href": "https://www.vaniras.com/"
       }
     ],
     "image": "/projects/vaniras-preview.png",
