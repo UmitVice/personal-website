@@ -2090,6 +2090,31 @@ main:focus {
   font-size: clamp(2.2rem, 4vw, 3.8rem);
 }
 
+/* ── Not found ───────────────────────────────────────────────── */
+
+.not-found {
+  align-content: center;
+  display: grid;
+  justify-items: start;
+  min-height: calc(100dvh - var(--header-h) - 120px);
+  padding: clamp(64px, 8vw, 112px) var(--gutter);
+}
+
+.not-found h1 {
+  font-size: clamp(2.8rem, 6vw, 5.6rem);
+  font-weight: 570;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+  margin: 18px 0 0;
+}
+
+.not-found > p:not(.section-label) {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 20px 0 32px;
+}
+
 /* ── Responsive ──────────────────────────────────────────────── */
 
 @media (max-width: 1100px) {
