@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { cn } from "@/lib/utils";
 import { buildMetadata, personJsonLd } from "@/lib/data";
 import "./globals.css";
 
@@ -30,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const jsonLd = personJsonLd();
 
   return (
-    <html lang="en" className={cn(geistSans.variable, geistMono.variable)} suppressHydrationWarning>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
