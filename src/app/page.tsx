@@ -1,98 +1,74 @@
 import Image from "next/image";
 import {
   ArrowDownRight,
+  ArrowRight,
   ArrowUpRight,
   BrainCircuit,
   BriefcaseBusiness,
   CheckCircle2,
   Code2,
-  Gauge,
   Globe2,
-  Layers3,
   Mail,
-  MapPin,
   Sparkles,
-  Users2,
 } from "lucide-react";
-import { experiences, profile, skillGroups } from "@/lib/data";
-import { individualProjects, projects } from "@/lib/projects";
-import { ProjectCategory, ProjectContent } from "@/components/sections/project-content";
-
-const leadershipPrinciples = [
-  {
-    icon: Layers3,
-    index: "01",
-    title: "Build across the product",
-    body: "At Marti Technologies, I combined team leadership with development across mobility products, web applications, mobile experiences and operational software.",
-  },
-  {
-    icon: Users2,
-    index: "02",
-    title: "Lead while implementing",
-    body: "At Optimus Software, I remained directly involved in web and mobile implementation while carrying team leadership responsibilities across the client portfolio.",
-  },
-  {
-    icon: Gauge,
-    index: "03",
-    title: "Own the delivery lifecycle",
-    body: "My end-to-end project work connects requirements and architecture with implementation, integrations, testing, deployment, iteration and production support.",
-  },
-] as const;
-
-const proofPoints = [
-  { value: "8+", label: "years building products" },
-  { value: "AI + ML", label: "applied product development" },
-  { value: "Web + Mobile", label: "full stack delivery" },
-  { value: "0→1", label: "products shipped end-to-end" },
-] as const;
+import { CompanyCard } from "@/components/company-card";
+import { ExternalLink } from "@/components/external-link";
+import { ProductSlide } from "@/components/product-slide";
+import { Rail } from "@/components/rail";
+import {
+  earlierRoles,
+  education,
+  formatMonth,
+  hero,
+  languages,
+  principles,
+  proofPoints,
+  roles,
+  skillGroups,
+} from "@/content/profile";
+import { companyProjects, products } from "@/content/projects";
+import { MAILTO, PERSON, SOCIAL_LINKS } from "@/lib/site";
 
 export default function HomePage() {
   return (
-    <main id="main-content">
-      <a className="skip-link" href="#top">Skip to content</a>
-      <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Umit Vice, back to top">
-          <span>UV</span>
-          <span className="wordmark-copy">
-            <strong>Umit Vice</strong>
-            <small>AI & full stack engineering</small>
-          </span>
-        </a>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <a href="#products">Individual Projects</a>
-          <a href="#leadership">Leadership</a>
-          <a href="#work">Company Projects</a>
-          <a href="#experience">Experience</a>
-        </nav>
-        <a className="header-cta" href="mailto:umitvice@gmail.com">
-          Let&apos;s talk <ArrowUpRight aria-hidden="true" />
-        </a>
-      </header>
-
-      <section className="hero" id="top" tabIndex={-1}>
+    <>
+      <section className="hero" aria-labelledby="hero-title">
         <div className="hero-grid" aria-hidden="true" />
+
         <div className="hero-copy">
-          <div className="availability"><span /> Open to AI &amp; senior full stack engineering roles</div>
-          <p className="hero-kicker">{profile.title}</p>
-          <p className="hero-leadership">{profile.subtitle}</p>
-          <h1>
-            I build AI products
-            <span>and complete web applications.</span>
+          <p className="availability">
+            <span aria-hidden="true" /> {hero.availability}
+          </p>
+          <h1 id="hero-title">
+            <span className="hero-kicker">
+              {PERSON.name} — {PERSON.jobTitle}
+            </span>
+            <span className="hero-statement">
+              {hero.statement[0]} <span>{hero.statement[1]}</span>
+            </span>
           </h1>
-          <p className="hero-intro">
-            {profile.summary}
+          <p className="hero-intro">{hero.intro}</p>
+          <p className="hero-now">
+            <span>{hero.now.label}</span>
+            <a href={hero.now.href}>
+              {hero.now.text} <ArrowRight aria-hidden="true" />
+            </a>
           </p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#products">
-              Explore my work <ArrowDownRight aria-hidden="true" />
+            <a className="button button-primary" href="#work">
+              See selected work <ArrowDownRight aria-hidden="true" />
             </a>
+            <a className="button button-ghost" href={MAILTO}>
+              Email me <ArrowUpRight aria-hidden="true" />
+            </a>
+            <ExternalLink className="hero-profile" href={SOCIAL_LINKS.github} me>
+              GitHub
+            </ExternalLink>
+            <ExternalLink className="hero-profile" href={SOCIAL_LINKS.linkedin} me>
+              LinkedIn
+            </ExternalLink>
           </div>
-          <div className="hero-trust">
-            <span>Based in Istanbul · Working globally</span>
-            <span className="trust-line" />
-            <a href="https://github.com/UmitVice" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://linkedin.com/in/umitvice" target="_blank" rel="noreferrer">LinkedIn</a>
-          </div>
+          <p className="hero-location">{hero.location}</p>
         </div>
 
         <div className="portrait-stage">
@@ -100,22 +76,31 @@ export default function HomePage() {
           <div className="portrait-orbit orbit-two" aria-hidden="true" />
           <div className="portrait-frame">
             <Image
-              src="/Umit_Vice_Profile_Photo.jpg"
-              alt="Umit Vice, AI Engineer and Senior Full Stack Engineer"
+              src={PERSON.photo}
+              alt={`${PERSON.name}, ${PERSON.jobTitle}`}
               fill
-              priority
-              sizes="(max-width: 900px) 82vw, 38vw"
+              loading="eager"
+              sizes="(max-width: 900px) 200px, 250px"
             />
             <div className="portrait-shade" />
           </div>
-          <div className="portrait-note note-top">
-            <BrainCircuit aria-hidden="true" />
-            <span><strong>AI-native</strong> product systems</span>
-          </div>
-          <div className="portrait-note note-bottom">
-            <CheckCircle2 aria-hidden="true" />
-            <span><strong>End-to-end</strong> technical ownership</span>
-          </div>
+          {hero.notes.map((note, index) => (
+            <p key={note.title} className={`portrait-note ${index === 0 ? "note-top" : "note-bottom"}`}>
+              {index === 0 ? <BrainCircuit aria-hidden="true" /> : <CheckCircle2 aria-hidden="true" />}
+              <span>
+                <strong>{note.title}</strong> {note.body}
+              </span>
+            </p>
+          ))}
+        </div>
+
+        <div className="hero-previously">
+          <span>Previously</span>
+          <ul aria-label="Previous employers">
+            {hero.previously.map((company) => (
+              <li key={company}>{company}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -123,193 +108,187 @@ export default function HomePage() {
         {proofPoints.map((point) => (
           <div className="proof" key={point.label}>
             <strong>{point.value}</strong>
-            <span>{point.label}</span>
+            <span>
+              <b>{point.label}</b>
+              {point.detail}
+            </span>
           </div>
         ))}
       </section>
 
-      <section className="section products-section" id="products">
-        <div className="section-heading products-heading">
-          <div>
-            <p className="section-label"><Sparkles aria-hidden="true" /> Independent product development</p>
-            <h2>Individual Projects</h2>
-          </div>
-          <p>
-            Three independently developed products connecting application architecture, data and user experience. Explore the engineering work and the applications below.
-          </p>
-        </div>
-
-        <div className="product-stack">
-          {individualProjects.map((product, index) => (
-            <article className={`product-feature product-${product.tone}`} key={product.id} id={product.id}>
-              <div className="product-copy">
-                <div className="product-number">{String(index + 1).padStart(2, "0")} / <ProjectCategory project={product} /></div>
-                <h3>{product.name}<span className="product-subtitle">{product.title.split(" | ")[1]}</span></h3>
-                <p className="project-role">{product.role}</p>
-                <ProjectContent project={product} />
-              </div>
-
-              <a
-                className="device-scene"
-                href={product.links[0]!.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Open ${product.name}`}
-              >
-                <span className="device-glow" aria-hidden="true" />
-                <span className="browser-device">
-                  <span className="browser-bar">
-                    <span className="browser-dots"><i /><i /><i /></span>
-                    <span className="browser-address">{new URL(product.links[0]!.href).host}</span>
-                    <ArrowUpRight aria-hidden="true" />
-                  </span>
-                  <span className="browser-screen">
-                    <Image
-                      src={product.image!}
-                      alt={product.imageAlt!}
-                      fill
-                      sizes="(max-width: 900px) 94vw, 56vw"
-                    />
-                  </span>
-                </span>
-                <span className="device-base" aria-hidden="true" />
-                <span className="device-shadow" aria-hidden="true" />
-                <span className="device-index" aria-hidden="true">{index + 1}</span>
-              </a>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section leadership-section" id="leadership">
-        <div className="section-heading leadership-heading">
-          <div>
-            <p className="section-label"><Users2 aria-hidden="true" /> Hands-on team leadership</p>
-            <h2>Leadership grounded in development.</h2>
-          </div>
-          <p>Team leadership at Marti Technologies and Optimus Software adds to my work as an engineer. I stay involved in the software, from implementation and integration to delivery.</p>
-        </div>
-        <div className="principles-grid">
-          {leadershipPrinciples.map(({ icon: Icon, index, title, body }) => (
-            <article className="principle" key={title}>
-              <div className="principle-top"><Icon aria-hidden="true" /><span>{index}</span></div>
-              <h3>{title}</h3>
-              <p>{body}</p>
-            </article>
-          ))}
-        </div>
-        <div className="leadership-band">
-          <div>
-            <span className="band-label">From requirements to production</span>
-            <h3>End-to-end ownership within company work.</h3>
-          </div>
-          <ul>
-            <li><CheckCircle2 /> Requirements &amp; software architecture</li>
-            <li><CheckCircle2 /> Frontend, backend &amp; React Native development</li>
-            <li><CheckCircle2 /> Integrations, application data &amp; testing</li>
-            <li><CheckCircle2 /> Deployment, iteration &amp; production support</li>
-          </ul>
-        </div>
-      </section>
-
-      <section className="section company-work" id="work">
+      <section className="section work-section" id="work" aria-labelledby="work-title">
         <div className="section-heading">
           <div>
-            <p className="section-label"><BriefcaseBusiness aria-hidden="true" /> Engineering contributions</p>
-            <h2>Company Projects</h2>
+            <p className="section-label">
+              <Sparkles aria-hidden="true" /> Independent products
+            </p>
+            <h2 id="work-title">Products I built end to end.</h2>
           </div>
           <p>
-            Products delivered while working for companies, spanning AI, mobility, telecom, HR technology and trading. My contributions connect hands-on software development with integration, product ownership and production delivery.
+            Two AI products and a marketplace, each owned from architecture to deployment. Swipe, use the arrows or
+            jump straight to a product.
           </p>
         </div>
-        <div className="work-list">
-          {projects.map((project, index) => (
-            <article className="work-row" key={project.id} id={project.id}>
-              <span className="work-index">{String(index + 1).padStart(2, "0")}</span>
-              <div className="work-title">
-                <p>{project.company}</p>
-                <ProjectCategory project={project} />
-                <h3>{project.title}</h3>
-                <p className="project-role">{project.role}</p>
-              </div>
-              <div className="work-detail">
-                <ProjectContent project={project} />
-              </div>
-            </article>
+        <Rail
+          label="Independent products"
+          noun="product"
+          variant="feature"
+          showChips
+          items={products.map((product) => ({ id: product.slug, label: product.name }))}
+        >
+          {products.map((product, index) => (
+            <ProductSlide key={product.slug} product={product} index={index} total={products.length} />
           ))}
-        </div>
+        </Rail>
       </section>
 
-      <section className="section experience-section" id="experience">
-        <div className="section-heading experience-heading">
+      <section className="section company-section" id="company-work" aria-labelledby="company-title">
+        <div className="section-heading">
           <div>
-            <p className="section-label"><Globe2 aria-hidden="true" /> Career journey</p>
-            <h2>Built across teams, sectors and borders.</h2>
+            <p className="section-label">
+              <BriefcaseBusiness aria-hidden="true" /> Company projects
+            </p>
+            <h2 id="company-title">Shipped inside product teams.</h2>
+          </div>
+          <p>
+            AI features, real-time systems, enterprise platforms and trading products, built with teams at Bolt
+            Insight, Marti, Vodafone, Talent500 and Optimus Software.
+          </p>
+        </div>
+        <Rail
+          label="Company projects"
+          noun="project"
+          variant="compact"
+          items={companyProjects.map((project) => ({ id: project.id, label: project.name }))}
+        >
+          {companyProjects.map((project, index) => (
+            <CompanyCard key={project.id} project={project} index={index} total={companyProjects.length} />
+          ))}
+        </Rail>
+      </section>
+
+      <section className="section experience-section" id="experience" aria-labelledby="experience-title">
+        <div className="experience-intro">
+          <p className="section-label">
+            <Globe2 aria-hidden="true" /> Experience
+          </p>
+          <h2 id="experience-title">Built across teams, sectors and borders.</h2>
+          <p>
+            Remote work with teams in the U.S. and the U.K., and hands-on technical leadership in Istanbul across AI,
+            mobility, telecom, HR tech and trading.
+          </p>
+          <dl className="experience-facts">
+            <div>
+              <dt>Education</dt>
+              <dd>
+                {education.degree}, {education.school} ({education.period})
+              </dd>
+            </div>
+            {languages.map((language) => (
+              <div key={language.name}>
+                <dt>{language.name}</dt>
+                <dd>{language.level}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <ol className="roles">
+          {roles.map((role) => (
+            <li className="role" key={role.company}>
+              <div className="role-meta">
+                <p className="role-period">
+                  <time dateTime={role.start}>{formatMonth(role.start)}</time> –{" "}
+                  <time dateTime={role.end}>{formatMonth(role.end)}</time>
+                </p>
+                <p className="role-location">{role.location}</p>
+                <a className="role-link" href={`#${role.projectId}`}>
+                  Projects <ArrowRight aria-hidden="true" />
+                  <span className="sr-only">: {role.company}</span>
+                </a>
+              </div>
+              <div className="role-body">
+                <p className="role-company">{role.company}</p>
+                <h3>{role.title}</h3>
+                <p>{role.summary}</p>
+              </div>
+            </li>
+          ))}
+          <li className="role role-earlier">
+            <div className="role-meta">
+              <p className="role-period">2017 – 2021</p>
+            </div>
+            <div className="role-body">
+              <p className="role-company">Earlier</p>
+              <ul>
+                {earlierRoles.map((role) => (
+                  <li key={role.company}>
+                    <strong>{role.title}</strong>, {role.company} · {role.period}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section className="section capabilities-section" id="capabilities" aria-labelledby="capabilities-title">
+        <div className="section-heading">
+          <div>
+            <p className="section-label">
+              <Code2 aria-hidden="true" /> Capabilities
+            </p>
+            <h2 id="capabilities-title">Hands-on enough to go deep. Experienced enough to see the whole system.</h2>
           </div>
         </div>
-        <div className="timeline">
-          {experiences.map((experience, index) => (
-            <article className="timeline-item" key={`${experience.company}-${experience.period}`}>
-              <div className="timeline-marker"><span>{index + 1}</span></div>
-              <div className="timeline-meta">
-                <p>{experience.period}</p>
-                <span><MapPin aria-hidden="true" /> {experience.location}</span>
-              </div>
-              <div className="timeline-content">
-                <p className="timeline-company">{experience.company}</p>
-                <h3>{experience.role}</h3>
-                <p>{experience.highlights[0]}</p>
-              </div>
-              <div className="timeline-tags">
-                {experience.tags.slice(0, 4).map((tag) => <span key={tag}>{tag}</span>)}
-              </div>
+
+        <div className="principles">
+          {principles.map((principle, index) => (
+            <article className="principle" key={principle.title}>
+              <span className="principle-index" aria-hidden="true">
+                0{index + 1}
+              </span>
+              <h3>{principle.title}</h3>
+              <p>{principle.body}</p>
             </article>
           ))}
         </div>
-      </section>
 
-      <section className="section capabilities-section" id="capabilities">
-        <div className="capabilities-intro">
-          <p className="section-label"><Code2 aria-hidden="true" /> Technical range</p>
-          <h2>Hands-on enough to go deep. Experienced enough to see the whole system.</h2>
-          <p>
-            I connect Python and machine learning with full stack web development and React Native mobile delivery, taking AI-enabled products from application data to the user experience.
-          </p>
-        </div>
-        <div className="capability-list">
-          {skillGroups.map((group, index) => (
-            <div className="capability-row" key={group.label}>
-              <span>0{index + 1}</span>
+        <div className="skills">
+          {skillGroups.map((group) => (
+            <div className="skill-group" key={group.label}>
               <h3>{group.label}</h3>
-              <p>{group.skills.join(" · ")}</p>
+              <ul className="chips">
+                {group.skills.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="contact-section" id="contact">
-        <div className="contact-noise" aria-hidden="true" />
-        <p className="section-label"><Mail aria-hidden="true" /> Start a conversation</p>
-        <h2>Looking for someone who can own the hard parts?</h2>
+      <section className="contact-section" id="contact" aria-labelledby="contact-title">
+        <p className="section-label">
+          <Mail aria-hidden="true" /> Contact
+        </p>
+        <h2 id="contact-title">Hiring a Senior AI or Full Stack Engineer?</h2>
         <p>
-          I am interested in AI Engineer, Senior AI Engineer and Senior Full Stack Engineer opportunities where I can combine applied AI work with end-to-end software delivery.
+          I am looking for senior roles where applied AI meets end-to-end product delivery. Email is the fastest way to
+          reach me.
         </p>
         <div className="contact-actions">
-          <a className="button button-light" href="mailto:umitvice@gmail.com">
-            umitvice@gmail.com <ArrowUpRight aria-hidden="true" />
+          <a className="button button-dark" href={MAILTO}>
+            {PERSON.email} <ArrowUpRight aria-hidden="true" />
           </a>
-          <div className="social-links">
-            <a href="https://linkedin.com/in/umitvice" target="_blank" rel="noreferrer" aria-label="LinkedIn"><span>in</span></a>
-            <a href="https://github.com/UmitVice" target="_blank" rel="noreferrer" aria-label="GitHub"><span>GH</span></a>
-          </div>
+          <ExternalLink className="button button-outline" href={SOCIAL_LINKS.linkedin} me>
+            LinkedIn
+          </ExternalLink>
+          <ExternalLink className="button button-outline" href={SOCIAL_LINKS.github} me>
+            GitHub
+          </ExternalLink>
         </div>
       </section>
-
-      <footer className="footer">
-        <div className="wordmark footer-wordmark"><span>UV</span><strong>Umit Vice</strong></div>
-        <p>{profile.title} · Istanbul, Türkiye</p>
-        <p>© {new Date().getFullYear()} Designed &amp; engineered with intent.</p>
-      </footer>
-    </main>
+    </>
   );
 }

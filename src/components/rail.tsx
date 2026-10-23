@@ -56,6 +56,7 @@ export function Rail({ label, noun, items, variant, showChips = false, children 
   const trackRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLSpanElement>(null);
   const announceNext = useRef(false);
+  const announceTimer = useRef<number | undefined>(undefined);
   const [range, setRange] = useState<Range>([0, 0]);
   const [ready, setReady] = useState(false);
   const [announcement, setAnnouncement] = useState("");
@@ -114,21 +115,29 @@ export function Rail({ label, noun, items, variant, showChips = false, children 
 
         setRange([firstVisible, lastVisible]);
         setReady(true);
+
+        // Announce once the smooth scroll settles, not on intermediate positions.
         if (announceNext.current) {
-          announceNext.current = false;
-          const item = items[firstVisible];
-          setAnnouncement(
-            variant === "feature" && item
-              ? `${item.label}, ${noun} ${firstVisible + 1} of ${count}`
-              : `${noun}s ${firstVisible + 1} to ${lastVisible + 1} of ${count}`,
-          );
+          window.clearTimeout(announceTimer.current);
+          announceTimer.current = window.setTimeout(() => {
+            announceNext.current = false;
+            const item = items[firstVisible];
+            setAnnouncement(
+              variant === "feature" && item
+                ? `${item.label}, ${noun} ${firstVisible + 1} of ${count}`
+                : `${noun}s ${firstVisible + 1} to ${lastVisible + 1} of ${count}`,
+            );
+          }, 400);
         }
       },
       { root: track, threshold: [0, threshold, 1] },
     );
 
     for (const slide of slides) observer.observe(slide);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(announceTimer.current);
+    };
   }, [count, items, noun, variant]);
 
   // Reflect horizontal progress without re-rendering on every scroll frame.

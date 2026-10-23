@@ -75,10 +75,9 @@ export const skillGroups = [
 export interface Role {
   company: string;
   title: string;
-  /** ISO year-month, used for <time dateTime>. */
+  /** ISO year-month (YYYY-MM), used for <time dateTime> and display labels. */
   start: string;
   end: string;
-  period: string;
   location: string;
   summary: string;
   /** Id of the matching company project card. */
@@ -91,7 +90,6 @@ export const roles: readonly Role[] = [
     title: "Full Stack Engineer",
     start: "2026-01",
     end: "2026-06",
-    period: "Jan 2026 – Jun 2026",
     location: "Remote · London, UK",
     summary:
       "Production LLM features for AI market research products: OpenAI and Anthropic integrations, persistent context, RAG and real-time streaming.",
@@ -102,7 +100,6 @@ export const roles: readonly Role[] = [
     title: "Senior Software Engineer & Tech Lead",
     start: "2025-07",
     end: "2025-12",
-    period: "Jul 2025 – Dec 2025",
     location: "Istanbul, Türkiye",
     summary:
       "Led frontend-focused engineering for high-traffic mobility products while contributing to Node.js and Python services, real-time maps and courier tracking.",
@@ -113,7 +110,6 @@ export const roles: readonly Role[] = [
     title: "Senior Software Engineer",
     start: "2024-04",
     end: "2025-05",
-    period: "Apr 2024 – May 2025",
     location: "Istanbul, Türkiye",
     summary:
       "Enterprise and ecommerce applications, including CRM, Red Konsol and the HB Campaign Panel, built with React, Next.js, Node.js and PostgreSQL.",
@@ -124,7 +120,6 @@ export const roles: readonly Role[] = [
     title: "Software Engineer",
     start: "2022-04",
     end: "2024-04",
-    period: "Apr 2022 – Apr 2024",
     location: "Remote · USA & India",
     summary:
       "International SaaS and HR products. Independently delivered AI Planet end to end and contributed to the Canvas React-to-Next.js migration.",
@@ -135,7 +130,6 @@ export const roles: readonly Role[] = [
     title: "Senior Software Engineer & Team Lead",
     start: "2021-11",
     end: "2022-03",
-    period: "Nov 2021 – Mar 2022",
     location: "Istanbul, Türkiye",
     summary:
       "Led frontend-focused engineering across trading, ecommerce and fundraising platforms while contributing backend functionality and mentoring engineers.",
@@ -156,3 +150,10 @@ export const education = {
 } as const;
 
 export const languages = [{ name: "English", level: "C1, professional" }] as const;
+
+const monthFormat = new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
+
+/** Formats a YYYY-MM string as "Jan 2026". */
+export function formatMonth(isoMonth: string): string {
+  return monthFormat.format(new Date(`${isoMonth}-01T00:00:00Z`));
+}
