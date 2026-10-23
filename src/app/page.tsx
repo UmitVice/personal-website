@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { CompanyCard } from "@/components/company-card";
 import { ExternalLink } from "@/components/external-link";
+import { JsonLd } from "@/components/json-ld";
 import { ProductSlide } from "@/components/product-slide";
 import { Rail } from "@/components/rail";
 import {
@@ -27,11 +28,15 @@ import {
   skillGroups,
 } from "@/content/profile";
 import { companyProjects, products } from "@/content/projects";
+import { SITE_DESCRIPTION, homeJsonLd, pageMetadata } from "@/lib/seo";
 import { MAILTO, PERSON, SOCIAL_LINKS } from "@/lib/site";
+
+export const metadata = pageMetadata({ path: "/", description: SITE_DESCRIPTION, type: "profile" });
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={homeJsonLd()} />
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-grid" aria-hidden="true" />
 

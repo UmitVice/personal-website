@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { buildMetadata, personJsonLd } from "@/lib/data";
+import { baseMetadata } from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
   preload: true,
 });
 
-export const metadata: Metadata = buildMetadata();
+export const metadata: Metadata = baseMetadata;
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -28,8 +28,6 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const jsonLd = personJsonLd();
-
   return (
     <html
       lang="en"
@@ -37,14 +35,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd),
-          }}
-        />
-      </head>
       <body suppressHydrationWarning>
         <a className="skip-link" href="#main-content">
           Skip to content
