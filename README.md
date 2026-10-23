@@ -1,72 +1,58 @@
-# Umit Vice — Portfolio Website
+# umitvice.com
 
-Senior Full Stack Engineer portfolio built with **Next.js 16**, **Tailwind CSS v4**, and **shadcn/ui**.
+Portfolio of Umithan Vice, Senior AI & Full Stack Engineer. Live at [www.umitvice.com](https://www.umitvice.com).
 
 ## Stack
 
-| Concern | Technology |
+| Concern | Choice |
 |---|---|
-| Framework | Next.js 16 (App Router, RSC, TypeScript) |
-| Styling | Tailwind CSS v4 + `@theme` design tokens |
-| UI Primitives | shadcn/ui (Radix, CVA, tailwind-merge) |
-| Fonts | Geist + Geist Mono via `next/font/google` |
-| Icons | lucide-react (tree-shaken) |
-| Animations | Pure CSS + IntersectionObserver (no JS animation lib) |
-| Package Manager | Yarn 4 |
+| Framework | Next.js 16 (App Router, React Server Components, TypeScript) |
+| Styling | Hand-written CSS on design tokens in `src/app/globals.css` (Tailwind only for preflight) |
+| Fonts | Geist and Geist Mono via `next/font` |
+| Icons | lucide-react |
+| Client JavaScript | One island: the horizontal project rail |
+| Package manager | Yarn 4 |
 
-## Design
+## Structure
 
-The visual system follows the **Coastal Tech Engineering Portfolio** design spec:
-- **Glassmorphism** surfaces with backdrop-blur + translucent white fills
-- **Sky Blue** (#0ea5e9) primary palette inspired by coastal horizons
-- **Sandy Beige** (#fef3c7) accent for tech tags
-- Generous whitespace and 8px spacing base unit
+```
+src/
+  app/
+    page.tsx                         Home: hero, proof points, product and company rails,
+                                     experience, capabilities, contact
+    projects/[slug]/page.tsx         Statically generated case studies
+    projects/[slug]/opengraph-image  Per-project social cards
+    opengraph-image.tsx              Home social card
+    robots.ts, sitemap.ts            Crawling and indexing
+    globals.css                      Tokens, layout and component styles
+  components/
+    rail.tsx                         Accessible scroll-snap carousel (client)
+    product-slide.tsx, company-card.tsx, browser-frame.tsx, ...
+  content/
+    profile.ts                       Hero copy, roles, skills, principles
+    projects.ts                      Products, case studies and company projects
+  lib/
+    site.ts                          Canonical URL, name and contact constants
+    seo.ts                           Page metadata and JSON-LD builders
+    og.tsx                           Shared Open Graph card renderer
+```
 
-## Sections
+Content changes happen in `src/content`; pages and metadata read from there.
 
-1. **Hero** — Name, title, quick-stats glass card, CTA buttons, tech chips
-2. **About** — Summary, initials tile, three pillar highlights
-3. **Skills & Technologies** — Four groups (Frontend, Mobile, Backend, AI/DevOps) with tag chips
-4. **Experience Timeline** — Vertical timeline with glass cards, scroll-reveal animation
-5. **Featured Projects** — 2-column glass card grid with highlight badges
-6. **Education & Certifications** — 4-column glass card layout
-7. **Contact** — Glass CTA panel with email, copy, download, and social tiles
+## Design notes
 
-## Performance Targets
+- Projects are browsed sideways. The rail uses native scroll snapping, so it works with touch, trackpads and the keyboard, and its content is server-rendered and scrollable without JavaScript. Buttons, jump chips, a position counter and screen-reader announcements are progressive enhancements.
+- No autoplay, no scroll hijacking, and reduced-motion preferences are respected.
+- Each page sets its own canonical URL, Open Graph data and JSON-LD (`ProfilePage` and `Person` on the home page; `SoftwareApplication` and breadcrumbs on case studies).
 
-- **Lighthouse**: 100/100 Performance, 100/100 Accessibility, 100/100 Best Practices, 100/100 SEO
-- Server Components by default — minimal client JavaScript
-- `next/font` self-hosts Geist — zero CLS from fonts
-- Pure CSS aurora background — no JS animation overhead
-- Static prerendering — instant load from edge cache
-
-## Getting Started
+## Development
 
 ```bash
-# Install dependencies
 yarn install
-
-# Development server (with Turbopack)
-yarn dev
-
-# Production build
+yarn dev        # frees port 3000 if a stale dev server holds it, then starts Next.js
+yarn typecheck
 yarn build
-
-# Start production server
 yarn start
 ```
 
-## Environment
-
-No environment variables required. The site is fully static and edge-deployable.
-
-## Deployment
-
-Deploy to Vercel with zero configuration:
-
-```bash
-yarn build
-# → .next/ folder is ready for Vercel
-```
-
-Or any static hosting: `yarn build` produces fully static output.
+No environment variables are required. Every route is statically generated.
