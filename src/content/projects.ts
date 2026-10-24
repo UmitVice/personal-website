@@ -167,9 +167,9 @@ export const products: readonly Product[] = [
     ],
     tags: ["Python", "FastAPI", "LangGraph", "pgvector", "Next.js"],
     links: [
-      { label: "Live demo", href: "https://evidencedesk-web.vercel.app/", kind: "live" },
+      { label: "Live demo", href: "https://evidencedesk.umitvice.com/", kind: "live" },
       { label: "Source code", href: "https://github.com/UmitVice/evidencedesk", kind: "source" },
-      { label: "Evaluation", href: "https://evidencedesk-web.vercel.app/evaluations", kind: "docs" },
+      { label: "Evaluation", href: "https://evidencedesk.umitvice.com/evaluations", kind: "docs" },
     ],
     visual: {
       kind: "image",
@@ -178,7 +178,7 @@ export const products: readonly Product[] = [
       width: 1440,
       height: 1139,
     },
-    host: "evidencedesk-web.vercel.app",
+    host: "evidencedesk.umitvice.com",
     tone: "green",
     caseStudy: {
       seoTitle: "EvidenceDesk: RAG Copilot with Human Review",
@@ -248,7 +248,7 @@ export const products: readonly Product[] = [
     ],
     tags: ["Next.js", "TypeScript", "MongoDB", "Jest"],
     links: [
-      { label: "Live demo", href: "https://life-world.vercel.app/", kind: "live" },
+      { label: "Live demo", href: "https://lifeworld.umitvice.com/", kind: "live" },
       { label: "Source code", href: "https://github.com/UmitVice/life-world", kind: "source" },
     ],
     visual: {
@@ -258,7 +258,7 @@ export const products: readonly Product[] = [
       width: 1729,
       height: 910,
     },
-    host: "life-world.vercel.app",
+    host: "lifeworld.umitvice.com",
     tone: "ink",
   },
 ];
