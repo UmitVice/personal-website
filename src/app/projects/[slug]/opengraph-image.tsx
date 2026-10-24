@@ -2,6 +2,8 @@ import { caseStudies, getCaseStudy } from "@/content/projects";
 import { OG_SIZE, renderOgCard } from "@/lib/og";
 import { PERSON } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 export const alt = `Case study by ${PERSON.name}`;
 export const size = OG_SIZE;
 export const contentType = "image/png";

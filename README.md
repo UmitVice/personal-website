@@ -51,8 +51,18 @@ Content changes happen in `src/content`; pages and metadata read from there.
 yarn install
 yarn dev        # frees port 3000 if a stale dev server holds it, then starts Next.js
 yarn typecheck
-yarn build
-yarn start
+yarn build      # static export into out/
 ```
 
 No environment variables are required. Every route is statically generated.
+
+## Hosting
+
+The static export is served by the Cloudflare Worker `umitvice` (Workers static assets, Free plan) on
+`www.umitvice.com`; `cloudflare/worker.js` redirects the apex domain to `www`. `public/_headers` sets the
+content type of the extensionless Open Graph images and caching for hashed assets. The `umitvice.com`
+DNS zone lives in the same Cloudflare account.
+
+```bash
+yarn deploy     # next build && wrangler deploy (needs `wrangler login` with access to the account)
+```

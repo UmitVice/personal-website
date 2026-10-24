@@ -1,6 +1,8 @@
 import { OG_SIZE, renderOgCard } from "@/lib/og";
 import { PERSON } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 export const alt = `${PERSON.name}, ${PERSON.jobTitle}`;
 export const size = OG_SIZE;
 export const contentType = "image/png";
